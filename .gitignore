@@ -20,6 +20,7 @@ project/plugins/project/
 # metals specific
 .metals
 .bloop
+project/metals.sbt
 
 # other
 .sbt-hydra-history
