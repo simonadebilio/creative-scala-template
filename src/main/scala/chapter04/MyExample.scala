@@ -1,3 +1,5 @@
+package chapter04
+
 import doodle.core._
 import doodle.image._
 import doodle.image.syntax._
