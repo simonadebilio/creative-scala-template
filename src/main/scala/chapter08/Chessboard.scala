@@ -18,4 +18,23 @@ object Chessboard {
         (unit beside unit) above (unit beside unit)
     }
   }
+
+  def newChessboard(count: Int): Image = {
+    val blackSquare = Image.rectangle(30, 30).fillColor(Color.black)
+    val whiteSquare = Image.rectangle(30, 30).fillColor(Color.white)
+    val base = (whiteSquare beside blackSquare) above (blackSquare beside whiteSquare)
+
+    def loop(count: Int): Image = {
+      count match {
+        case 0 => base
+        case n =>
+          val unit = loop(n - 1)
+          (unit beside unit) above (unit beside unit)
+      }
+    }
+    loop(count)
+  }
 }
+
+
+
