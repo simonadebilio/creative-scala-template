@@ -3,23 +3,9 @@ package chapter09
 import doodle.core._
 import doodle.image._
 import doodle.image.syntax.core._
+import Sample.sample
 
 object ParametricSpiral {
-  def sample(samples: Int, image: Image, curve: Angle => Point): Image = {
-    val step = Angle.one / samples
-
-    def loop(count: Int): Image = {
-      val angle = step * count
-      count match {
-        case 0 => Image.empty
-        case n =>
-          image.at(curve(angle)).on(loop(n - 1))
-      }
-    }
-
-    loop(samples)
-  }
-
   def spiral(angle: Angle, ratio: Double, rotation: Double): Point =
     Point.polar((angle * ratio).toDegrees, angle + rotation.degrees)
 
