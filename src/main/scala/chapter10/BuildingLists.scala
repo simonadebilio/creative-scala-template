@@ -1,6 +1,6 @@
 package chapter10
 
-object BuildingsLists {
+object BuildingLists {
   def ones(length: Int): List[Int] =
     length match {
       case 0 => Nil
@@ -66,7 +66,33 @@ object BuildingsLists {
       case head :: tail => head * product(tail)
     }
 
+  // Write a method contains that accepts a List[A] and an element of type A
+  // and returns true if the list contains the element and false otherwise
+  def contains[A](list: List[A], item: A): Boolean =
+    list match {
+      case Nil => false
+      case head :: tail => head == item || contains(tail, item)
+    }
+
+  // Write a method first that accepts a List[A] and an element of type A and returns the first element
+  // of the list if it is not empty and otherwise returns the element of type A passed as a parameter.
+  def first[A](list: List[A], item: A): A =
+    list match {
+      case Nil => item
+      case head :: tail => head
+    }
+
+  //Write a method reverse that accepts a List[A] and reverses the list.
+  def reverse3[A](list: List[A]): List[A] =
+    list match {
+      case Nil => Nil
+      case head :: tail => reverse(tail).appended(head)
+    }
+
+  def fill[A, B](list: List[A], b: B ): List[B] =
+    list.map(_ => b)
+
   def main(args: Array[String]): Unit = {
-    println(product(1 :: 2 :: 3 :: 4 :: Nil))
+    println(reverse3(List(4, 5, 6)))
   }
 }
