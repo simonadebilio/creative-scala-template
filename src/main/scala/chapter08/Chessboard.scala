@@ -34,6 +34,10 @@ object Chessboard {
     }
     loop(count)
   }
+
+  def main(args: Array[String]): Unit = {
+chessboard(0).draw()
+  }
 }
 
 
